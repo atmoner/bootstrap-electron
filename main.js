@@ -1,5 +1,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+require('electron-reload')(__dirname)
+
 let mainWindow
 
 function createWindow () {
@@ -11,6 +13,7 @@ function createWindow () {
     }
   })
   mainWindow.loadFile('index.html')
+  mainWindow.removeMenu();
   mainWindow.on('closed', function () {
     mainWindow = null
   })
